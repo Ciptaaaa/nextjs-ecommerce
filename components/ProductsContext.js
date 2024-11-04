@@ -8,4 +8,4 @@ export function ProductsContextProvider({children}) {
   return (
     <ProductsContext.Provider value={{selectedProducts,setSelectedProducts}}>{children}</ProductsContext.Provider>
   );
-}
+} 

@@ -1,5 +1,5 @@
-import '../styles/globals.css'
-import {ProductsContextProvider} from "../components/ProductsContext";
+import "../styles/globals.css";
+import { ProductsContextProvider } from "../components/ProductsContext";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -9,4 +9,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp
+export default MyApp;

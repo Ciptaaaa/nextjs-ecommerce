@@ -1,16 +1,28 @@
 import Footer from "./Footer";
-import {useContext, useEffect, useState} from "react";
-import {ProductsContext} from "./ProductsContext";
+import { useContext, useEffect, useState } from "react";
+import { ProductsContext } from "./ProductsContext";
 
-export default function Layout({children}) {
-  const {setSelectedProducts} = useContext(ProductsContext);
-  const [success,setSuccess] = useState(false);
+export default function Layout({ children }) {
+  const { setSelectedProducts } = useContext(ProductsContext);
+  const [success, setSuccess] = useState(false);
+
   useEffect(() => {
-    if (window.location.href.includes('success')) {
+    console.log(window.location.href); // Log URL
+
+    // Memeriksa URL saat komponen dimuat
+    if (window.location.href.includes("success")) {
       setSelectedProducts([]);
       setSuccess(true);
+
+      // Menghapus pesan setelah 5 detik (5000 ms)
+      const timer = setTimeout(() => {
+        setSuccess(false);
+      }, 5000);
+
+      return () => clearTimeout(timer); // Cleanup timer saat unmount
     }
-  }, []);
+  }, [setSelectedProducts]); // Menambahkan setSelectedProducts sebagai dependency
+
   return (
     <div>
       <div className="p-5">
